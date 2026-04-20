@@ -40,12 +40,45 @@ begin
 
 END//
 Delimiter ;
+DELETE FROM CasaSistema WHERE IdCasa = 1;
+Select * From CasaSistema;
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa de San Pablo', 150000, NULL, NULL);
 
+-- Casas Disponibles
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa en San José Centro', 120000, NULL, NULL);
 
 INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
-VALUES ('Casa de Prueba', 150000, NULL, NULL);
+VALUES ('Casa en Heredia, 2 cuartos', 175000, NULL, NULL);
 
-DROP VIEW IF EXISTS Vista_ConsultaCasas;
-DROP VIEW IF EXISTS Vista_CasasDisponibles;
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa Barrio Escalante', 155000, NULL, NULL);
+
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa de Avenida Escazu', 150000, NULL, NULL);
+
+-- Casas ya Alquiladas (Reservadas)
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa en Alajuela, Residencial', 145000, 'JuanPerez', '2023-11-20');
+
+INSERT INTO CasaSistema (DescripcionCasa, PrecioCasa, UsuarioAlquiler, FechaAlquiler) 
+VALUES ('Casa en Cartago', 125000, 'MariaLopez', '2023-11-21');
+
+-- Crear las Vistas
+CREATE VIEW Vista_ConsultaCasas AS
+SELECT 
+    DescripcionCasa, 
+    PrecioCasa, 
+    IFNULL(UsuarioAlquiler, 'N/A') AS Usuario,
+    IF(UsuarioAlquiler IS NULL, 'Disponible', 'Reservada') AS Estado,
+    DATE_FORMAT(FechaAlquiler, '%d/%m/%Y') AS FechaFormateada
+FROM CasaSistema
+WHERE PrecioCasa BETWEEN 115000 AND 180000;
+CREATE VIEW Vista_CasasDisponibles AS
+SELECT IdCasa, DescripcionCasa, PrecioCasa
+FROM CasaSistema
+WHERE UsuarioAlquiler IS NULL;
+
 
         

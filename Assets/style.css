@@ -1,0 +1,370 @@
+/* ============================================================
+   CSS Variables
+   ============================================================ */
+:root {
+    --primary:       #1a3c5e;
+    --primary-light: #2a5f8f;
+    --accent:        #c8973a;
+    --accent-light:  #e8b55a;
+    --bg:            #f4f1ec;
+    --bg-card:       #ffffff;
+    --text-dark:     #1a1a2e;
+    --text-muted:    #6b7280;
+    --success:       #2d6a4f;
+    --danger:        #9b2335;
+    --border:        #ddd8d0;
+    --shadow:        0 4px 24px rgba(26, 60, 94, 0.10);
+    --radius:        12px;
+    --font-display:  'Playfair Display', serif;
+    --font-body:     'DM Sans', sans-serif;
+}
+ 
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+ 
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ 
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+}
+ 
+/* ============================================================
+   Navbar
+   ============================================================ */
+.custom-navbar {
+    background: var(--primary);
+    padding: 1rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+ 
+.custom-navbar .navbar-brand {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--accent) !important;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+}
+ 
+.custom-navbar .navbar-brand:hover { opacity: 0.85; }
+ 
+.custom-navbar .nav-link {
+    color: rgba(255,255,255,0.80) !important;
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    transition: all 0.2s;
+    margin-left: 4px;
+}
+ 
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: #ffffff !important;
+    background: rgba(200, 151, 58, 0.18);
+}
+ 
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+ 
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+ 
+/* ============================================================
+   Hero Banner
+   ============================================================ */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 2rem 0 1.5rem;
+    border-bottom: 3px solid var(--accent);
+}
+ 
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+ 
+.hero-icon {
+    font-size: 2rem;
+    color: var(--accent);
+}
+ 
+/* ============================================================
+   Page Title
+   ============================================================ */
+.page-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+ 
+.page-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+ 
+.title-accent {
+    display: inline-block;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+}
+ 
+/* ============================================================
+   Cards
+   ============================================================ */
+.custom-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+ 
+/* ============================================================
+   Table
+   ============================================================ */
+.custom-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+ 
+.custom-table thead th {
+    background: var(--primary);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    border: none;
+}
+ 
+.custom-table thead th:first-child { border-radius: 8px 0 0 0; }
+.custom-table thead th:last-child  { border-radius: 0 8px 0 0; }
+ 
+.custom-table tbody tr {
+    transition: background 0.15s;
+}
+ 
+.custom-table tbody tr:hover {
+    background: rgba(26, 60, 94, 0.04);
+}
+ 
+.custom-table tbody td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.93rem;
+    vertical-align: middle;
+}
+ 
+/* ============================================================
+   Badges / Estado
+   ============================================================ */
+.badge-disponible {
+    background: #d1fae5;
+    color: var(--success);
+    border: 1px solid #6ee7b7;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+}
+ 
+.badge-reservada {
+    background: #fde8e8;
+    color: var(--danger);
+    border: 1px solid #fca5a5;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+}
+ 
+/* ============================================================
+   Forms
+   ============================================================ */
+.form-label {
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+}
+ 
+.form-control, .form-select {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.93rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--bg-card);
+}
+ 
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(42, 95, 143, 0.12);
+    outline: none;
+}
+ 
+.form-control[readonly] {
+    background: #f0ede8;
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+ 
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn-primary-custom {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.75rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+ 
+.btn-primary-custom:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 60, 94, 0.25);
+    color: #ffffff;
+}
+ 
+.btn-primary-custom:active {
+    transform: translateY(0);
+}
+ 
+.btn-accent-custom {
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.75rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+ 
+.btn-accent-custom:hover {
+    background: var(--accent-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200, 151, 58, 0.30);
+    color: #ffffff;
+}
+ 
+/* ============================================================
+   Alerts
+   ============================================================ */
+.alert-custom-error {
+    background: #fde8e8;
+    border: 1px solid #fca5a5;
+    color: var(--danger);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+}
+ 
+.alert-custom-success {
+    background: #d1fae5;
+    border: 1px solid #6ee7b7;
+    color: var(--success);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+}
+ 
+/* ============================================================
+   Footer
+   ============================================================ */
+.custom-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.75);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+ 
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+ 
+.footer-sub {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+}
+ 
+.footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+}
+ 
+/* ============================================================
+   Misc
+   ============================================================ */
+.main-content {
+    flex: 1;
+    padding: 2.5rem 0;
+}
+ 
+.precio-format {
+    font-weight: 600;
+    color: var(--primary);
+}
+ 
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+ 
+.empty-state i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.4;
+}
+ 
+/* ============================================================
+   Animations
+   ============================================================ */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+ 
+.fade-in-up {
+    animation: fadeInUp 0.4s ease both;
+}
+ 
+.fade-in-up:nth-child(2) { animation-delay: 0.05s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.10s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.15s; }
